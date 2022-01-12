@@ -2,14 +2,58 @@
 <html>
 
 <head>
-  <title>Simple Example</title>
+  <title>urfacezoomed</title>
   <meta charset="UTF-8" />
+
+  <style>
+    html,
+    body {
+      padding: 0;
+      margin: 0;
+      background-color: black;
+    }
+
+    .container {
+      position: relative;
+      height: 100vh;
+    }
+
+    .loading {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      z-index: 3;
+    }
+
+    .hidden {
+      visibility: hidden;
+      width: 100%;
+      max-width: 700px;
+    }
+
+    .centered {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    #zoomedVideo {
+      border-radius: 20px;
+    }
+
+    .title {
+      color: white;
+    }
+  </style>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
-  <div style="position: relative; height: 100vh; width: 100vw;">
-    <video id="mystery" style="visibility: hidden; height: 100%; width: 80%;" autoplay></video>
-    <canvas id="detection" style="position: absolute; left: 0;"></canvas>
+  <div class='container'>
+    <h3 class="centered title">just wait, please</h3>
+    <video id="hiddenVideo" class='hidden' autoplay></video>
+    <canvas id="zoomedVideo" class='centered'></canvas>
     <script src="src/index.js"></script>
   </div>
 </body>
